@@ -46,7 +46,7 @@ router.post('/profile', handleAddUser);
 router.delete('/profile', handleDeleteUser);
 router.patch('/profile', handleUpdateUser);
 
-router.patch('/profileAddOrder', handleAddUserOrder);
+router.patch('/profileAddOrder',type, handleAddUserOrder);
 
 router.patch('/profileDeleteFromCart', handleDeleteFromCart);
 

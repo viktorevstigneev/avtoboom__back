@@ -43,7 +43,7 @@ const nodemailer = require('nodemailer');
 const handleAddBanner = async (req, res) => {
 	try {
 		console.log('req: ', req.body);
-		const result = await createBanner({ avatar: req.file.filename });
+		const result = await createBanner({ back: req.body.back });
 
 		res.status(HttpStatusCode.OK).send(result);
 	} catch (error) {
@@ -65,7 +65,7 @@ const handleGetBanner = async (req, res) => {
 
 const handleDeleteBanner = async (req, res) => {
 	try {
-		const result = await deleteBanner(req.body.id);
+		const result = await deleteBanner(req.query.id);
 
 		res.status(HttpStatusCode.OK).send(result);
 	} catch (error) {
