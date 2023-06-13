@@ -87,11 +87,17 @@ const handleUpdateTeam = async (req, res) => {
 				price: req.body.price,
 				description: req.body.description,
 				avatar: req.file.filename,
+				year: req.body.year,
+				miliesKM: req.body.miliesKM,
+				engine: req.body.engine,
 			});
 		} else {
 			result = await updateTeam(req.params.id, {
 				price: req.body.price,
 				description: req.body.description,
+				year: req.body.year,
+				miliesKM: req.body.miliesKM,
+				engine: req.body.engine,
 			});
 		}
 		res.status(HttpStatusCode.OK).send(result);

@@ -18,6 +18,15 @@ const PeopleSchema = new Schema({
 	price: {
 		type: String,
 	},
+	year: {
+		type: String,
+	},
+	miliesKM: {
+		type: String,
+	},
+	engine: {
+		type: String,
+	},
 });
 
 const People = model('People', PeopleSchema);
