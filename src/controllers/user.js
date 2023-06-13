@@ -96,31 +96,6 @@ const handleAddUserOrder = async (req, res) => {
 
 		const result = await updateUser(req.query.userId, { order: newOrder, userCart: [] });
 
-		console.log('eq.body: ', req.body);
-
-		let transporter = nodemailer.createTransport({
-			host: 'smtp.mail.ru',
-			port: 587,
-			secure: false,
-			auth: {
-				user: 'aavtoboom@mail.ru',
-				pass: 's9aij27LeH5XsFnhpyLk',
-			},
-		});
-
-		const textMsg = `
-			${req.body.name} хочет хочет заказать ${req.body.cars} \n
-	
-			email: ${req.body.email}
-			телефон: ${req.body.phone}
-		`;
-
-		await transporter.sendMail({
-			from: 'aavtoboom@mail.ru',
-			to: 'aavtoboom@mail.ru',
-			subject: req.body.subject,
-			text: textMsg,
-		});
 
 		res.status(HttpStatusCode.OK).send(result);
 	} catch (error) {
